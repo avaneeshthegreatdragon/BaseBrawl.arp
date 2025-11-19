@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Login</title></head>
+<body style="background:#111;color:white;font-family:Arial;padding:24px;">
+<h2>Login</h2>
+
+<label>Username<br><input id="username"></label><br><br>
+<label>Password<br><input id="password" type="password"></label><br><br>
+
+<button onclick="login()">Login</button>
+<p id="msg"></p>
+
+<script>
+async function login() {
+    const body = {
+        username: username.value.trim(),
+        password: password.value.trim()
+    };
+
+    const res = await fetch("YOUR_RENDER_URL/api/login", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(body)
+    });
+
+    const json = await res.json();
+
+    if (json.ok) {
+        localStorage.setItem("jwt", json.token);
+        localStorage.setItem("username", json.user.username);
+        window.location = "main.html";
+    } else {
+        msg.textContent = json.msg;
+    }
+}
+</script>
+</body>
+</html>
