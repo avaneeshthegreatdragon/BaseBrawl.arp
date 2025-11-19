@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Character Select</title></head>
+<body style="background:#111;color:white;text-align:center;padding-top:50px;">
+<h2>Select a Character</h2>
+<div id="list"></div>
+
+<script>
+const characters = ["Fire","Water","Earth","Wind","Dragon","Unicorn"];
+const used = JSON.parse(localStorage.getItem("usedChars") || "{}");
+
+characters.forEach(ch => {
+    const btn = document.createElement("button");
+    btn.textContent = ch;
+    btn.style.margin = "10px";
+
+    if (used[ch]) btn.disabled = true;
+
+    btn.onclick = () => {
+        localStorage.setItem("character", ch);
+        used[ch] = true;
+        localStorage.setItem("usedChars", JSON.stringify(used));
+        location = "main.html";
+    };
+    list.appendChild(btn);
+});
+</script>
+</body>
+</html>
