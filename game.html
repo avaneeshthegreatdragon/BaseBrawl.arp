@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Game</title></head>
+<body style="background:#111;color:white;text-align:center;padding-top:50px;">
+<h1>Game Loaded</h1>
+
+<p>Player: <span id="u"></span></p>
+<p>Character: <span id="c"></span></p>
+<p>Team: <span id="t"></span></p>
+
+<script>
+u.textContent = localStorage.getItem("username");
+c.textContent = localStorage.getItem("character");
+t.textContent = localStorage.getItem("team");
+</script>
+</body>
+</html>
