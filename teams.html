@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Team Select</title></head>
+<body style="background:#111;color:white;text-align:center;padding-top:50px;">
+<h2>Select Team</h2>
+
+<button onclick="pick('Red')" style="background:red;padding:20px;">Red Team</button>
+<button onclick="pick('Blue')" style="background:blue;padding:20px;">Blue Team</button>
+
+<script>
+function pick(t) {
+    localStorage.setItem("team", t);
+    location = "main.html";
+}
+</script>
+</body>
+</html>
